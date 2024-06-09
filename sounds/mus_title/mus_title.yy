@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":41.142857,
+  "duration":41.14288,
   "name":"mus_title",
   "parent":{
     "name":"music",

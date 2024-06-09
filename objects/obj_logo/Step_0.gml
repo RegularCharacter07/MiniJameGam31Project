@@ -7,5 +7,5 @@ if !audio_is_playing(mus_title)
 
 if key_z
 {
-    room_goto(rm_test);
+    room_goto(rm_menu);
 }

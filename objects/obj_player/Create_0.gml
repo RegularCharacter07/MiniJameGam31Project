@@ -3,8 +3,6 @@ playable = false;
 playable2 = false;
 reset_count = 0;
 move_speed = 2;
-camera_x = camera_get_view_x(view_camera[0]);
-camera_y = camera_get_view_y(view_camera[0]);
 
 enum player_states
 {
@@ -16,3 +14,8 @@ enum player_states
 
 state = player_states.normal;
 selected_state = player_states.normal;
+
+if !audio_is_playing(mus_game) and !audio_is_paused(mus_game)
+{
+	audio_play_sound(mus_game,1,true);
+}

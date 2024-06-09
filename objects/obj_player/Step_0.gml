@@ -1,34 +1,39 @@
 scr_controls();
 
-if playable == false
-{
-    if !instance_exists(obj_cards)
-    {
-      instance_create_depth(camera_x,camera_y,-9999,obj_cards);
-    }
-}
-
 if playable == true and state == player_states.normal
 {
     if key_left
     {
-        move_and_collide(-move_speed,0,obj_block);
+        if !position_meeting(x-move_speed,y,obj_block)
+		{
+			x -= move_speed;	
+		}
         sprite_index = spr_player_left;
     }
     else if key_right
     {
-        move_and_collide(move_speed,0,obj_block);
+        
+		if !position_meeting(x+move_speed,y,obj_block)
+		{
+			x += move_speed;	
+		}
         sprite_index = spr_player_right;
     }
     
     if key_down
     {
-        move_and_collide(0,move_speed,obj_block);
+        if !position_meeting(x,y+move_speed,obj_block)
+		{
+			y += move_speed;	
+		}
         sprite_index = spr_player_down;
     }
     else if key_up
     {
-        move_and_collide(0,-move_speed,obj_block);
+        if !position_meeting(x,y-move_speed,obj_block)
+		{
+			y -= move_speed;	
+		}
         sprite_index = spr_player_up;
     }
     
@@ -58,20 +63,33 @@ if playable == true and state != player_states.normal
 {
     if key_left
     {
-        move_and_collide(-move_speed,0,obj_block);
+        if !position_meeting(x-move_speed,y,obj_block)
+		{
+			x -= move_speed;	
+		}
     }
     else if key_right
     {
-        move_and_collide(move_speed,0,obj_block);
+        
+		if !position_meeting(x+move_speed,y,obj_block)
+		{
+			x += move_speed;	
+		}
     }
     
     if key_down
     {
-        move_and_collide(0,move_speed,obj_block);
+        if !position_meeting(x,y+move_speed,obj_block)
+		{
+			y += move_speed;	
+		}
     }
     else if key_up
     {
-        move_and_collide(0,-move_speed,obj_block);
+        if !position_meeting(x,y-move_speed,obj_block)
+		{
+			y -= move_speed;	
+		}
     }
 }
 
